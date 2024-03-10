@@ -17,7 +17,7 @@ let arrowKeyD = document.getElementById("arrowKeyD")
 
 function EventListener(){
 
-  document.body.addEventListener("keydown", go);
+  document.body.addEventListener("keydown", movement);
   arrowKeyA.addEventListener("click", moveLeft)
   arrowKeyS.addEventListener("click", moveDown)
   arrowKeyD.addEventListener("click", moveRight)
@@ -25,7 +25,7 @@ function EventListener(){
 }
 EventListener()
 
-function go(e) {
+function movement(e) {
   // Key 'A' for moving left
   if (e.key === "a") {
     moveLeft();
