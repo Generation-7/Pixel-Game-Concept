@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Pixel;
+  src: url(Fonts/Minecraft.ttf);
+}
+
 /* Main settings like background, box-sizing, reseting margin etc */
 body {
   margin: 0%;
@@ -27,13 +32,11 @@ body {
 /* Character icon */
 #astronaut {
   width: 100%;
-
   position: absolute;
   top: 0;
   left: 0;
   transform: rotate(0deg);
   transition: all 0.3s;
-  width: 200px;
 }
 
 /* The container of the space staion */
