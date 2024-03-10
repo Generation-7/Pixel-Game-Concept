@@ -1,0 +1,43 @@
+/* Main settings like background, box-sizing, reseting margin etc */
+body {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  background-image: url(Images/space.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* The main container of the game */
+#container {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* The container of the character icon */
+#astronautContainer {
+  position: absolute;
+  width: 10%;
+  left: 5%;
+  top: 30%;
+}
+
+/* Character icon */
+#astronaut {
+  width: 100%;
+}
+
+/* The container of the space staion */
+#spaceStationContainer {
+  position: absolute;
+  width: 20%;
+  right: 5%;
+  top: 20%;
+}
+
+/* The space Station */
+#spaceStation {
+  width: 100%;
+}
