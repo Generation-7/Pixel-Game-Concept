@@ -9,7 +9,21 @@ let windowWidth = window.innerWidth;
 // Window height
 let windowHeight = window.innerHeight;
 
-document.body.addEventListener("keydown", go);
+
+let arrowKeyW = document.getElementById("arrowKeyW")
+let arrowKeyA = document.getElementById("arrowKeyA")
+let arrowKeyS = document.getElementById("arrowKeyS")
+let arrowKeyD = document.getElementById("arrowKeyD")
+
+function EventListener(){
+
+  document.body.addEventListener("keydown", go);
+  arrowKeyA.addEventListener("click", moveLeft)
+  arrowKeyS.addEventListener("click", moveDown)
+  arrowKeyD.addEventListener("click", moveRight)
+  arrowKeyW.addEventListener("click", moveUp)
+}
+EventListener()
 
 function go(e) {
   // Key 'A' for moving left
@@ -29,40 +43,43 @@ function go(e) {
     moveDown();
   }
 
-  // left function
-  function moveLeft() {
-    if (x > 0) {
-      // Move left
-      x -= speed;
-      astronaut.style.left = x + "px";
-      astronaut.style.transform = "rotate(270deg)";
-    }
+}
+// left function
+function moveLeft() {
+ 
+  if (x > 0) {
+    // Move left
+    x -= speed;
+    astronaut.style.left = x + "px";
+    astronaut.style.transform = "rotate(270deg)";
+    
   }
-  //right function
-  function moveRight() {
-    if (x + 225 < windowWidth) {
-      // Move right
-      x += speed;
-      astronaut.style.left = x + "px";
-      astronaut.style.transform = "rotate(90deg)";
-    }
+}
+//right function
+function moveRight() {
+  if (x + 225 < windowWidth) {
+    // Move right
+    x += speed;
+    astronaut.style.left = x + "px";
+    astronaut.style.transform = "rotate(90deg)";
+    
   }
-  // up function
-  function moveUp() {
-    if (y > -220) {
-      // Move up
-      y -= speed;
-      astronaut.style.top = y + "px";
-      astronaut.style.transform = "rotate(0deg)";
-    }
+}
+// up function
+function moveUp() {
+  if (y > -220) {
+    // Move up
+    y -= speed;
+    astronaut.style.top = y + "px";
+    astronaut.style.transform = "rotate(0deg)";
   }
-  //down function
-  function moveDown() {
-    if (y + 500 < windowHeight) {
-      // Move down
-      y += speed;
-      astronaut.style.top = y + "px";
-      astronaut.style.transform = "rotate(180deg)";
-    }
+}
+//down function
+function moveDown() {
+  if (y + 500 < windowHeight) {
+    // Move down
+    y += speed;
+    astronaut.style.top = y + "px";
+    astronaut.style.transform = "rotate(180deg)";
   }
 }
