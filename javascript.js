@@ -52,7 +52,7 @@ function moveLeft() {
 }
 //right function
 function moveRight() {
-  if (x + 225 < windowWidth) {
+  if (x < 800) {
     // Move right
     x += speed;
     astronaut.style.left = x + "%";
