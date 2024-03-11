@@ -43,6 +43,7 @@ body {
 /* The container of the space staion */
 #spaceStationContainer {
   position: absolute;
+  height: 40%;
   width: 20%;
   right: 5%;
   top: 20%;
@@ -51,6 +52,19 @@ body {
 /* The space Station */
 #spaceStation {
   width: 100%;
+  animation-name: bouncing;
+  animation-duration: 10s;
+  animation-iteration-count: infinite; /* Add this line */
+}
+
+@keyframes bouncing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
 }
 
 #arrowKeysContainer {
