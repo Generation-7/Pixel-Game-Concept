@@ -1,3 +1,11 @@
+const astronaut = document.querySelector("#astronaut");
+const spaceStation = document.querySelector("#spaceStation");
+
+// Selecting the character icon
+let arrowKeyW = document.getElementById("arrowKeyW");
+let arrowKeyA = document.getElementById("arrowKeyA");
+let arrowKeyS = document.getElementById("arrowKeyS");
+let arrowKeyD = document.getElementById("arrowKeyD");
 function characterMovement() {
   // Selecting the character icon
   const astronaut = document.querySelector("#astronaut");
