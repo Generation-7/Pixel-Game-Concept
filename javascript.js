@@ -2,13 +2,22 @@ const astronaut = document.querySelector("#astronaut");
 const spaceStation = document.querySelector("#spaceStation");
 
 // Selecting the character icon
+let arrowKeyQ = document.getElementById("arrowKeyQ");
 let arrowKeyW = document.getElementById("arrowKeyW");
+let arrowKeyE = document.getElementById("arrowKeyE");
 let arrowKeyA = document.getElementById("arrowKeyA");
 let arrowKeyS = document.getElementById("arrowKeyS");
 let arrowKeyD = document.getElementById("arrowKeyD");
+
+function gameLoop() {
+  touchDetectionAction(); // Check for collision
+  requestAnimationFrame(gameLoop); // Call the loop again
+}
+
+// Start the game loop
+gameLoop();
+
 function characterMovement() {
-  // Selecting the character icon
-  const astronaut = document.querySelector("#astronaut");
   let x = 0;
   let y = 0;
   // Speed value
@@ -18,13 +27,9 @@ function characterMovement() {
   // Window height
   let windowHeight = window.innerHeight;
 
-  let arrowKeyW = document.getElementById("arrowKeyW");
-  let arrowKeyA = document.getElementById("arrowKeyA");
-  let arrowKeyS = document.getElementById("arrowKeyS");
-  let arrowKeyD = document.getElementById("arrowKeyD");
-
   function EventListener() {
     document.body.addEventListener("keydown", movement);
+    document.body.addEventListener("keydown", touchDetectionAction);
     arrowKeyA.addEventListener("click", moveLeft);
     arrowKeyS.addEventListener("click", moveDown);
     arrowKeyD.addEventListener("click", moveRight);
@@ -90,3 +95,30 @@ function characterMovement() {
 }
 
 characterMovement(); // Call the function to initialize
+
+function touchDetectionAction(eButton) {
+  const astronautRect = astronaut.getBoundingClientRect();
+  const spaceStationRect = spaceStation.getBoundingClientRect();
+  let eButtonAnimation = arrowKeyE.classList;
+
+  if (
+    astronautRect.left < spaceStationRect.right &&
+    astronautRect.right > spaceStationRect.left &&
+    astronautRect.top < spaceStationRect.bottom &&
+    astronautRect.bottom > spaceStationRect.top
+  ) {
+    eButtonAnimation.add("hintPress");
+  } else eButtonAnimation.remove("hintPress");
+
+  if (
+    astronautRect.left < spaceStationRect.right &&
+    astronautRect.right > spaceStationRect.left &&
+    astronautRect.top < spaceStationRect.bottom &&
+    astronautRect.bottom > spaceStationRect.top &&
+    eButton.key === "e"
+  ) {
+    console.log("It's working!");
+  }
+}
+
+touchDetectionAction();

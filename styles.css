@@ -100,8 +100,91 @@ body {
 
 #upperButtons {
   margin-bottom: 0.1vw;
+  margin-right: 1vw;
 }
 
 #downerButtons {
   margin: 0%;
+}
+
+.hintPress {
+  animation-name: hintPress;
+  animation-duration: 3s;
+  animation-iteration-count: infinite; /* Add this line */
+}
+
+@keyframes hintPress {
+  0%,
+  100% {
+    color: rgb(255, 0, 0);
+    font-size: 2.2vw;
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(255, 42, 42);
+  }
+  8% {
+    color: rgb(255, 127, 0);
+    font-size: 2.2vw;
+    box-shadow: rgb(255, 127, 0) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(255, 89, 0);
+  }
+  16% {
+    color: rgb(255, 255, 0);
+    font-size: 2.2vw;
+    box-shadow: rgb(255, 255, 0) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(255, 238, 0);
+  }
+  25% {
+    color: rgb(127, 255, 0);
+    font-size: 2.2vw;
+    box-shadow: rgb(127, 255, 0) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(109, 255, 0);
+  }
+  33% {
+    color: rgb(0, 255, 0);
+    font-size: 2.2vw;
+    box-shadow: rgb(0, 255, 0) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(0, 255, 19);
+  }
+  41% {
+    color: rgb(0, 255, 127);
+    font-size: 2.2vw;
+    box-shadow: rgb(0, 255, 127) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(0, 255, 76);
+  }
+  50% {
+    color: rgb(0, 255, 255);
+    font-size: 2.2vw;
+    box-shadow: rgb(0, 255, 255) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(0, 238, 255);
+  }
+  58% {
+    color: rgb(0, 127, 255);
+    font-size: 2.2vw;
+    box-shadow: rgb(0, 127, 255) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(0, 55, 255);
+  }
+  66% {
+    color: rgb(0, 0, 255);
+    font-size: 2.2vw;
+    box-shadow: rgb(0, 0, 255) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(0, 0, 255);
+  }
+  75% {
+    color: rgb(127, 0, 255);
+    font-size: 2.2vw;
+    box-shadow: rgb(127, 0, 255) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(70, 0, 255);
+  }
+  83% {
+    color: rgb(255, 0, 255);
+    font-size: 2.2vw;
+    box-shadow: rgb(255, 0, 255) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(255, 0, 255);
+  }
+  91% {
+    color: rgb(255, 0, 127);
+    font-size: 2.2vw;
+    box-shadow: rgb(255, 0, 127) 0px 0px 0px 0.25vw,
+      0px 0px 0em 0.25vw rgb(255, 0, 127);
+  }
 }
