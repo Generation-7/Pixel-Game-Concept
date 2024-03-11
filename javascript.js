@@ -9,21 +9,19 @@ let windowWidth = window.innerWidth;
 // Window height
 let windowHeight = window.innerHeight;
 
+let arrowKeyW = document.getElementById("arrowKeyW");
+let arrowKeyA = document.getElementById("arrowKeyA");
+let arrowKeyS = document.getElementById("arrowKeyS");
+let arrowKeyD = document.getElementById("arrowKeyD");
 
-let arrowKeyW = document.getElementById("arrowKeyW")
-let arrowKeyA = document.getElementById("arrowKeyA")
-let arrowKeyS = document.getElementById("arrowKeyS")
-let arrowKeyD = document.getElementById("arrowKeyD")
-
-function EventListener(){
-
+function EventListener() {
   document.body.addEventListener("keydown", movement);
-  arrowKeyA.addEventListener("click", moveLeft)
-  arrowKeyS.addEventListener("click", moveDown)
-  arrowKeyD.addEventListener("click", moveRight)
-  arrowKeyW.addEventListener("click", moveUp)
+  arrowKeyA.addEventListener("click", moveLeft);
+  arrowKeyS.addEventListener("click", moveDown);
+  arrowKeyD.addEventListener("click", moveRight);
+  arrowKeyW.addEventListener("click", moveUp);
 }
-EventListener()
+EventListener();
 
 function movement(e) {
   // Key 'A' for moving left
@@ -42,17 +40,14 @@ function movement(e) {
   else if (e.key === "s") {
     moveDown();
   }
-
 }
 // left function
 function moveLeft() {
- 
   if (x > 0) {
     // Move left
     x -= speed;
-    astronaut.style.left = x + "px";
+    astronaut.style.left = x + "%";
     astronaut.style.transform = "rotate(270deg)";
-    
   }
 }
 //right function
@@ -60,9 +55,8 @@ function moveRight() {
   if (x + 225 < windowWidth) {
     // Move right
     x += speed;
-    astronaut.style.left = x + "px";
+    astronaut.style.left = x + "%";
     astronaut.style.transform = "rotate(90deg)";
-    
   }
 }
 // up function
@@ -70,7 +64,7 @@ function moveUp() {
   if (y > -220) {
     // Move up
     y -= speed;
-    astronaut.style.top = y + "px";
+    astronaut.style.top = y + "%";
     astronaut.style.transform = "rotate(0deg)";
   }
 }
@@ -79,7 +73,7 @@ function moveDown() {
   if (y + 500 < windowHeight) {
     // Move down
     y += speed;
-    astronaut.style.top = y + "px";
+    astronaut.style.top = y + "%";
     astronaut.style.transform = "rotate(180deg)";
   }
 }
