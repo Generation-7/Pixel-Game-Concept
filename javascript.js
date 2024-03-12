@@ -1,6 +1,6 @@
 const astronaut = document.querySelector("#astronaut");
 const spaceStation = document.querySelector("#spaceStation");
-
+const spaceStationContainer = document.querySelector("#spaceStationContainer");
 // Selecting the character icon
 let arrowKeyQ = document.getElementById("arrowKeyQ");
 let arrowKeyW = document.getElementById("arrowKeyW");
@@ -10,7 +10,6 @@ let arrowKeyS = document.getElementById("arrowKeyS");
 let arrowKeyD = document.getElementById("arrowKeyD");
 
 function gameLoop() {
-  touchDetectionAction(); // Check for collision
   requestAnimationFrame(gameLoop); // Call the loop again
 }
 
@@ -26,8 +25,10 @@ function characterMovement() {
   let windowWidth = window.innerWidth;
   // Window height
   let windowHeight = window.innerHeight;
-
+  
   function EventListener() {
+    arrowKeyE.addEventListener("click", gameOut); // Check for collision
+    arrowKeyQ.addEventListener("click", touchDetectionAction); // Check for collision
     document.body.addEventListener("keydown", movement);
     document.body.addEventListener("keydown", touchDetectionAction);
     arrowKeyA.addEventListener("click", moveLeft);
@@ -99,17 +100,22 @@ characterMovement(); // Call the function to initialize
 function touchDetectionAction(eButton) {
   const astronautRect = astronaut.getBoundingClientRect();
   const spaceStationRect = spaceStation.getBoundingClientRect();
-  let eButtonAnimation = arrowKeyE.classList;
-
+  let eButtonAnimationE = arrowKeyE.classList;
+  let eButtonAnimationQ = arrowKeyQ.classList;
   if (
     astronautRect.left < spaceStationRect.right &&
     astronautRect.right > spaceStationRect.left &&
     astronautRect.top < spaceStationRect.bottom &&
     astronautRect.bottom > spaceStationRect.top
   ) {
-    eButtonAnimation.add("hintPress");
-  } else eButtonAnimation.remove("hintPress");
-
+    //set button animation
+    eButtonAnimationE.add("hintPress");
+    eButtonAnimationQ.add("hintPress");
+  } else {
+    // remove button animation
+    eButtonAnimationE.remove("hintPress");
+    eButtonAnimationQ.remove("hintPress");
+  }
   if (
     astronautRect.left < spaceStationRect.right &&
     astronautRect.right > spaceStationRect.left &&
@@ -117,8 +123,55 @@ function touchDetectionAction(eButton) {
     astronautRect.bottom > spaceStationRect.top &&
     eButton.key === "e"
   ) {
-    console.log("It's working!");
+    // finish Game
+    gameOut();
+
+    // Remove Q button and E button animation
+    eButtonAnimationE.remove("hintPress");
+    eButtonAnimationQ.remove("hintPress");
+  }
+  if (
+    // if click Q 
+    astronautRect.left < spaceStationRect.right &&
+    astronautRect.right > spaceStationRect.left &&
+    astronautRect.top < spaceStationRect.bottom &&
+    astronautRect.bottom > spaceStationRect.top &&
+    eButton.key == "q"
+  ) {
+    
   }
 }
 
-touchDetectionAction();
+
+
+
+// if click Q 
+
+
+
+
+
+
+function gameOut() {
+  const astronautRect = astronaut.getBoundingClientRect();
+  const spaceStationRect = spaceStation.getBoundingClientRect();
+  if (
+    astronautRect.left < spaceStationRect.right &&
+    astronautRect.right > spaceStationRect.left &&
+    astronautRect.top < spaceStationRect.bottom &&
+    astronautRect.bottom > spaceStationRect.top
+  ) {
+    astronaut.style.display = "none";
+    setTimeout(() => {
+      spaceStationContainer.style.transform = "rotate(90deg)";
+      setTimeout(() => {
+        spaceStationContainer.style.top = "-100%";
+        setTimeout(() => {
+          alert("You Are Winner")
+          
+        }, 1500);
+      }, 1500);
+    }, 1000);
+    
+  }
+}

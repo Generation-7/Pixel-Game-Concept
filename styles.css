@@ -47,6 +47,7 @@ body {
   width: 20%;
   right: 5%;
   top: 20%;
+  transition: all 3s;
 }
 
 /* The space Station */
@@ -55,8 +56,9 @@ body {
   animation-name: bouncing;
   animation-duration: 10s;
   animation-iteration-count: infinite; /* Add this line */
+  position: absolute;
+  
 }
-
 @keyframes bouncing {
   0%,
   100% {
