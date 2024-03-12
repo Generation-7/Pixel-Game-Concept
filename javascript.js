@@ -46,19 +46,19 @@ function characterMovement() {
 
   function movement(e) {
     // Key 'A' for moving left
-    if (e.key === "a") {
+    if (e.code === "KeyA") {
       moveLeft();
     }
     // Key 'W' for moving up
-    else if (e.key === "w") {
+    else if (e.code === "KeyW") {
       moveUp();
     }
     // Key 'D' for moving right
-    else if (e.key === "d") {
+    else if (e.code === "KeyD") {
       moveRight();
     }
     // Key 'S' for moving down
-    else if (e.key === "s") {
+    else if (e.code === "KeyS") {
       moveDown();
     }
   }
@@ -127,7 +127,7 @@ function touchDetectionAction(eButton) {
     astronautRect.right > spaceStationRect.left &&
     astronautRect.top < spaceStationRect.bottom &&
     astronautRect.bottom > spaceStationRect.top &&
-    eButton.key === "e"
+    eButton.code === "KeyE"
   ) {
     // finish Game
     gameEnding();
@@ -142,7 +142,7 @@ function touchDetectionAction(eButton) {
     astronautRect.right > spaceStationRect.left &&
     astronautRect.top < spaceStationRect.bottom &&
     astronautRect.bottom > spaceStationRect.top &&
-    eButton.key == "q"
+    eButton.code == "KeyQ"
   ) {
   }
 }
