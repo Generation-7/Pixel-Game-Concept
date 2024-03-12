@@ -13,6 +13,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  user-select: none; /* Disable text selection */
+  -webkit-user-drag: none; /* Disable dragging for Safari */
+  -webkit-touch-callout: none; /* Disable callout for Safari */
 }
 
 /* The main container of the game */
@@ -40,6 +43,11 @@ body {
   transition: all 0.3s;
 }
 
+/* Disable pointer events when the left mouse button is pressed */
+#astronaut:active {
+  pointer-events: none;
+}
+
 /* The container of the space staion */
 #spaceStationContainer {
   position: absolute;
@@ -55,10 +63,15 @@ body {
   width: 100%;
   animation-name: bouncing;
   animation-duration: 10s;
-  animation-iteration-count: infinite; /* Add this line */
+  animation-iteration-count: infinite;
   position: absolute;
-  
 }
+
+/* Disable pointer events when the left mouse button is pressed */
+#spaceStation:active {
+  pointer-events: none;
+}
+
 @keyframes bouncing {
   0%,
   100% {
