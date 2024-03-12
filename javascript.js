@@ -9,7 +9,16 @@ let arrowKeyA = document.getElementById("arrowKeyA");
 let arrowKeyS = document.getElementById("arrowKeyS");
 let arrowKeyD = document.getElementById("arrowKeyD");
 
+function addEventListeners() {
+  arrowKeyE.addEventListener("click", gameEnding); // Check for collision
+  arrowKeyQ.addEventListener("click", touchDetectionAction); // Check for collision
+  document.body.addEventListener("keydown", touchDetectionAction);
+}
+
+addEventListeners();
+
 function gameLoop() {
+  touchDetectionAction(); // Check for collision
   requestAnimationFrame(gameLoop); // Call the loop again
 }
 
@@ -25,18 +34,15 @@ function characterMovement() {
   let windowWidth = window.innerWidth;
   // Window height
   let windowHeight = window.innerHeight;
-  
-  function EventListener() {
-    arrowKeyE.addEventListener("click", gameOut); // Check for collision
-    arrowKeyQ.addEventListener("click", touchDetectionAction); // Check for collision
+
+  function characterMovementEL() {
     document.body.addEventListener("keydown", movement);
-    document.body.addEventListener("keydown", touchDetectionAction);
     arrowKeyA.addEventListener("click", moveLeft);
     arrowKeyS.addEventListener("click", moveDown);
     arrowKeyD.addEventListener("click", moveRight);
     arrowKeyW.addEventListener("click", moveUp);
   }
-  EventListener();
+  characterMovementEL();
 
   function movement(e) {
     // Key 'A' for moving left
@@ -124,35 +130,26 @@ function touchDetectionAction(eButton) {
     eButton.key === "e"
   ) {
     // finish Game
-    gameOut();
+    gameEnding();
 
     // Remove Q button and E button animation
     eButtonAnimationE.remove("hintPress");
     eButtonAnimationQ.remove("hintPress");
   }
   if (
-    // if click Q 
+    // if click Q
     astronautRect.left < spaceStationRect.right &&
     astronautRect.right > spaceStationRect.left &&
     astronautRect.top < spaceStationRect.bottom &&
     astronautRect.bottom > spaceStationRect.top &&
     eButton.key == "q"
   ) {
-    
   }
 }
 
+// if click Q
 
-
-
-// if click Q 
-
-
-
-
-
-
-function gameOut() {
+function gameEnding() {
   const astronautRect = astronaut.getBoundingClientRect();
   const spaceStationRect = spaceStation.getBoundingClientRect();
   if (
@@ -167,11 +164,9 @@ function gameOut() {
       setTimeout(() => {
         spaceStationContainer.style.top = "-100%";
         setTimeout(() => {
-          alert("You Are Winner")
-          
+          alert("You Are Winner");
         }, 1500);
       }, 1500);
     }, 1000);
-    
   }
 }
