@@ -107,7 +107,6 @@ function touchDetectionAction(eButton) {
   const astronautRect = astronaut.getBoundingClientRect();
   const spaceStationRect = spaceStation.getBoundingClientRect();
   let eButtonAnimationE = arrowKeyE.classList;
-  let eButtonAnimationQ = arrowKeyQ.classList;
   if (
     astronautRect.left < spaceStationRect.right &&
     astronautRect.right > spaceStationRect.left &&
@@ -116,11 +115,9 @@ function touchDetectionAction(eButton) {
   ) {
     //set button animation
     eButtonAnimationE.add("hintPress");
-    eButtonAnimationQ.add("hintPress");
   } else {
     // remove button animation
     eButtonAnimationE.remove("hintPress");
-    eButtonAnimationQ.remove("hintPress");
   }
   if (
     astronautRect.left < spaceStationRect.right &&
@@ -132,22 +129,10 @@ function touchDetectionAction(eButton) {
     // finish Game
     gameEnding();
 
-    // Remove Q button and E button animation
+    // Remove E button animation
     eButtonAnimationE.remove("hintPress");
-    eButtonAnimationQ.remove("hintPress");
-  }
-  if (
-    // if click Q
-    astronautRect.left < spaceStationRect.right &&
-    astronautRect.right > spaceStationRect.left &&
-    astronautRect.top < spaceStationRect.bottom &&
-    astronautRect.bottom > spaceStationRect.top &&
-    eButton.code == "KeyQ"
-  ) {
   }
 }
-
-// if click Q
 
 function gameEnding() {
   const astronautRect = astronaut.getBoundingClientRect();
