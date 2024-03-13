@@ -172,8 +172,6 @@ function touchDetectionAction(eButton) {
 
 // Function to handle the game ending
 function gameEnding() {
-  const astronautRect = astronaut.getBoundingClientRect();
-  const spaceStationRect = spaceStation.getBoundingClientRect();
   astronaut.style.display = "none";
   setTimeout(() => {
     spaceStationContainer.style.transform = "rotate(90deg)";
