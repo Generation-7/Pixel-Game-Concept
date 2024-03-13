@@ -1,9 +1,10 @@
+/* Define custom font */
 @font-face {
   font-family: Pixel;
   src: url(Fonts/Minecraft.ttf);
 }
 
-/* Main settings like background, box-sizing, reseting margin etc */
+/* Main settings for the entire document */
 body {
   margin: 0%;
   padding: 0%;
@@ -19,13 +20,13 @@ body {
   -webkit-touch-callout: none; /* Disable callout for Safari */
 }
 
-/* The main container of the game */
+/* Main container of the game */
 #container {
   min-height: 100vh;
   position: relative;
 }
 
-/* Game start button styles  */
+/* Game start button styles */
 #startButtonColorLayer {
   background-color: rgb(0, 0, 0);
   color: white;
@@ -45,6 +46,7 @@ body {
   border: none;
 }
 
+/* Start button styles */
 #startButton {
   border: none;
   color: white;
@@ -70,7 +72,7 @@ body {
   }
 }
 
-/* The container of the character icon */
+/* Container of the character icon */
 #astronautContainer {
   position: absolute;
   height: 10%;
@@ -94,7 +96,7 @@ body {
   pointer-events: none;
 }
 
-/* The container of the space staion */
+/* Container of the space station */
 #spaceStationContainer {
   position: absolute;
   height: 40%;
@@ -104,7 +106,7 @@ body {
   transition: all 3s;
 }
 
-/* The space Station */
+/* Space Station icon */
 #spaceStation {
   width: 100%;
   animation-name: bouncing;
@@ -118,6 +120,7 @@ body {
   pointer-events: none;
 }
 
+/* Animation for the space station */
 @keyframes bouncing {
   0%,
   100% {
@@ -129,6 +132,7 @@ body {
   }
 }
 
+/* Container for arrow keys */
 #arrowKeysContainer {
   display: flex;
   flex-direction: column;
@@ -139,6 +143,18 @@ body {
   transform: translateX(-50%);
 }
 
+/* Upper arrow buttons */
+#upperButtons {
+  margin-bottom: 0.1vw;
+  margin-right: 1vw;
+}
+
+/* Lower arrow buttons */
+#downerButtons {
+  margin: 0%;
+}
+
+/* Styling for arrow keys */
 .arrowKeys {
   font-size: 1.2vw;
   font-family: pixel;
@@ -153,6 +169,7 @@ body {
   margin: 0.4vw;
 }
 
+/* Active state for arrow keys */
 .arrowKeys:active {
   width: 3.4vw;
   height: 3.4vw;
@@ -160,22 +177,14 @@ body {
   background-color: rgb(112, 112, 113);
 }
 
-#upperButtons {
-  margin-bottom: 0.1vw;
-  margin-right: 1vw;
-}
-
-#downerButtons {
-  margin: 0%;
-}
-
+/* Show hint animation for arrow keys */
 .hintPress {
   animation-name: hintPress;
   animation-duration: 3s;
   animation-iteration-count: infinite;
-  /* Add this line */
 }
 
+/* Keyframe animation for hintPress */
 @keyframes hintPress {
   0%,
   100% {
