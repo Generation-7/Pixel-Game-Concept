@@ -54,10 +54,20 @@ body {
   font-size: 3vw;
 }
 
-#startButtonContainer>button>p:hover {
-  cursor: pointer;
+/* Shake animation class */
+.shake {
+  animation: shake 0.2s ease-in-out;
 }
 
+/* Shake animation for start button */
+@keyframes shake {
+  25%,
+  75% {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
 }
 
 /* The container of the character icon */

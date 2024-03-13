@@ -32,18 +32,12 @@ function startGame() {
 
 // This function gives an error if the user clicks anywhere other than the start button
 function missClickError(e) {
-  if (document.querySelector("#startButtonText") && e.target !== document.querySelector("#startButtonText")) {
-    if (!redCircle) {
-      // Create circle element to show the waring
-      const redCircle = document.createElement("div");
-      redCircle.id = "redCircle";
-      redCircle.innerText = "error";
-      document.body.appendChild(redCircle);
-
-      setTimeout(() => {
-        redCircle.remove();
-      }, 1000)
-    }
+  if (e.target !== startButton) {
+    const startButtonAnimation = startButton.classList; // Select the classList of the text element
+    startButtonAnimation.add("shake");
+    setTimeout(() => {
+      startButtonAnimation.remove("shake");
+    }, 500);
   }
 }
 
