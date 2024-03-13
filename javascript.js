@@ -1,10 +1,10 @@
 // Selecting some items from within html
-const startButtonText = document.querySelector("#startButtonText")
-const redCircle = document.querySelector("#redCircle");
 const startButtonContainer = document.querySelector("#startButtonContainer");
+const startButtonColorLayer = document.querySelector("#startButtonColorLayer");
+const startButton = document.querySelector("#startButton");
 const astronaut = document.querySelector("#astronaut");
-const spaceStation = document.querySelector("#spaceStation");
 const spaceStationContainer = document.querySelector("#spaceStationContainer");
+const spaceStation = document.querySelector("#spaceStation");
 // Selecting the character icon
 let arrowKeyQ = document.getElementById("arrowKeyQ");
 let arrowKeyW = document.getElementById("arrowKeyW");
@@ -17,7 +17,7 @@ function addEventListeners() {
   arrowKeyE.addEventListener("click", gameEnding); // Check for collision
   arrowKeyQ.addEventListener("click", touchDetectionAction); // Check for collision
   document.body.addEventListener("keydown", touchDetectionAction);
-  startButtonText.addEventListener("click", startGame);
+  startButton.addEventListener("click", startGame);
   document.addEventListener("click", missClickError);
 }
 
@@ -26,11 +26,11 @@ addEventListeners();
 // This function is for start game
 function startGame() {
   startButtonContainer.remove();
-  startButtonText.remove();
-  characterMovement();// Call the function to initialize
+  startButton.remove();
+  characterMovement(); // Call the function to initialize
 }
 
-// This function gives an error if the user clicks anywhere other than the start button 
+// This function gives an error if the user clicks anywhere other than the start button
 function missClickError(e) {
   if (document.querySelector("#startButtonText") && e.target !== document.querySelector("#startButtonText")) {
     if (!redCircle) {
@@ -45,7 +45,6 @@ function missClickError(e) {
       }, 1000)
     }
   }
-
 }
 
 function gameLoop() {
@@ -131,7 +130,6 @@ function characterMovement() {
     }
   }
 }
-
 
 function touchDetectionAction(eButton) {
   const astronautRect = astronaut.getBoundingClientRect();

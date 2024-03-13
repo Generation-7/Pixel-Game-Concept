@@ -13,12 +13,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  user-select: none;
-  /* Disable text selection */
-  -webkit-user-drag: none;
-  /* Disable dragging for Safari */
-  -webkit-touch-callout: none;
-  /* Disable callout for Safari */
+  overflow: hidden;
+  user-select: none; /* Disable text selection */
+  -webkit-user-drag: none; /* Disable dragging for Safari */
+  -webkit-touch-callout: none; /* Disable callout for Safari */
 }
 
 /* The main container of the game */
@@ -28,14 +26,11 @@ body {
 }
 
 /* Game start button styles  */
-#startButtonContainer>button {
+#startButtonColorLayer {
   background-color: rgb(0, 0, 0);
   color: white;
   padding: 10px 20px;
-  border: 1px solid red;
-  border-radius: 10px;
   box-shadow: 5px 5px 5px gray;
-  translate: all 0.3;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -47,39 +42,22 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 1999;
+  border: none;
 }
 
-#startButtonContainer>button:active {
-  background-color: rgb(0, 3, 92);
-}
-
-
-#startButtonContainer>button>p {
-
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+#startButton {
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: pixel;
+  cursor: pointer;
+  font-size: 3vw;
 }
 
 #startButtonContainer>button>p:hover {
   cursor: pointer;
 }
 
-/* styles for the red circle */
-#redCircle {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  color: rgb(0, 0, 0);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 20px;
 }
 
 /* The container of the character icon */
@@ -131,7 +109,6 @@ body {
 }
 
 @keyframes bouncing {
-
   0%,
   100% {
     transform: translateY(0);
@@ -190,7 +167,6 @@ body {
 }
 
 @keyframes hintPress {
-
   0%,
   100% {
     color: rgb(255, 0, 0);
