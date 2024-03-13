@@ -172,14 +172,23 @@ function touchDetectionAction(eButton) {
 
 // Function to handle the game ending
 function gameEnding() {
-  astronaut.style.display = "none";
-  setTimeout(() => {
-    spaceStationContainer.style.transform = "rotate(90deg)";
-    setTimeout(() => {
-      spaceStationContainer.style.top = "-100%";
+  const astronautRect = astronaut.getBoundingClientRect();
+  const spaceStationRect = spaceStation.getBoundingClientRect();
+  if (
+    astronautRect.left < spaceStationRect.right &&
+    astronautRect.right > spaceStationRect.left &&
+    astronautRect.top < spaceStationRect.bottom &&
+    astronautRect.bottom > spaceStationRect.top ){
+
+      astronaut.style.display = "none";
       setTimeout(() => {
-        alert("You Are Winner");
-      }, 1500);
-    }, 1500);
-  }, 1000);
+        spaceStationContainer.style.transform = "rotate(90deg)";
+        setTimeout(() => {
+          spaceStationContainer.style.top = "-100%";
+          setTimeout(() => {
+            alert("You Are Winner");
+          }, 1500);
+        }, 1500);
+      }, 1000);
+    }
 }
